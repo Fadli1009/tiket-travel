@@ -32,7 +32,7 @@ const Footer = () => {
           <div></div>
         </div>
       </div>
-      <div className="grid grid-cols-3 p-10 text-[#193354]">
+      <div className="grid grid-cols-1 lg:grid-cols-3 p-5 lg:p-10 text-[#193354] gap-5">
         <div>
           <h1 className="text-2xl font-bold">PT SEAVENTURES (Persero) HQ</h1>
           <p className="font-semibold">
@@ -49,7 +49,7 @@ const Footer = () => {
         </div>
         <div>
           <h1 className="text-2xl font-bold">Media Sosial</h1>
-          <div className="flex gap-5">
+          <div className="flex gap-5 mt-5">
             <Instagram size={50} />
             <Twitter size={50} />
             <Facebook size={50} />
@@ -57,7 +57,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <div className="flex justify-between items-center p-10">
+      <div className="flex justify-between items-center p-10 flex-col-reverse lg:flex-row gap-5">
         <p className="text-gray-500">2018-2023 PT. Seaventures Indonesia. All Rights Reserved</p>
         <img src={logo} alt="" />
       </div>
