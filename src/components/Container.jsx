@@ -4,9 +4,9 @@ import Footer from "./footer/Footer";
 const Container = ({ children }) => {
   return (
     <>
-      <div className="min-h-screen px-2">
+      <div className="min-h-screen">
         <Navbar />
-        <div>{children}</div>
+        <div className="px-2">{children}</div>
         <Footer />
       </div>
     </>
