@@ -10,7 +10,7 @@ const Footer = () => {
         style={{ backgroundImage: `url(${bgImage})` }}
         className="h-90 w-full bg-cover bg-center"
       >
-        <div className="grid grid-cols-1 lg:grid-cols-2 pt-24 px-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 pt-24 px-5">
           <div>
             <div className="flex gap-5 items-center justify-between">
               <div className="flex gap-5 items-center">

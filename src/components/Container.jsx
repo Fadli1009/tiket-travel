@@ -6,7 +6,7 @@ const Container = ({ children }) => {
     <>
       <div className="min-h-screen">
         <Navbar />
-        <div className="px-2">{children}</div>
+        <div className="">{children}</div>
         <Footer />
       </div>
     </>
