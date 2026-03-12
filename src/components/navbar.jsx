@@ -2,6 +2,7 @@ import { Menu } from "lucide-react";
 import Logo from "../assets/logo.svg";
 import { NavLink } from "react-router-dom";
 import { useState } from "react";
+import ButtonSign from "./buttonsign";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -21,21 +22,29 @@ const Navbar = () => {
           <NavLink to="/last-offer">Last Offer</NavLink>
           <NavLink to="/contact">Contact Us</NavLink>
         </div>
-        <div className="border-2 p-2 rounded-lg">
-          <button>Sign In</button>
+        <div>
+          <ButtonSign />
         </div>
       </div>
-      <div className="flex items-center justify-between px-2">
+      <div className="flex items-center font-semibold justify-between px-2 md:px-5">
         <div className="">
           <img src={Logo} alt="Logo" className="size-30" />
         </div>
-        <div className="hidden items-center gap-3">
-          <NavLink to="/">Home</NavLink>
-          <NavLink to="/transaction">Transaction</NavLink>
-          <NavLink to="/last-offer">Last Offer</NavLink>
-          <NavLink to="/contact">Contact Us</NavLink>
+        <div className="hidden md:flex gap-5 items-center">
+          <div className="flex gap-5">
+            <NavLink to="/">Home</NavLink>
+            <NavLink to="/transaction">Transaction</NavLink>
+            <NavLink to="/last-offer">Last Offer</NavLink>
+            <NavLink to="/contact">Contact Us</NavLink>
+          </div>
+          <div className="cursor-pointer">
+            <span>ID | EN</span>
+          </div>
+          <div className="cursor-pointer">
+            <ButtonSign />
+          </div>
         </div>
-        <div onClick={toggleMenu}>
+        <div className="md:hidden" onClick={toggleMenu}>
           <Menu size={30} />
         </div>
       </div>
