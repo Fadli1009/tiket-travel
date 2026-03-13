@@ -53,11 +53,16 @@ const capitalize = (str = "") =>
 const getPort = (name = "") => {
   const normalized = capitalize(name);
   const match = Object.keys(portMap).find((k) =>
-    normalized.toLowerCase().includes(k.toLowerCase())
+    normalized.toLowerCase().includes(k.toLowerCase()),
   );
   return match
     ? { ...portMap[match], displayName: match }
-    : { code: name.slice(0, 3).toUpperCase(), sub: name, region: "", displayName: capitalize(name) };
+    : {
+        code: name.slice(0, 3).toUpperCase(),
+        sub: name,
+        region: "",
+        displayName: capitalize(name),
+      };
 };
 
 const tabs = ["Pricing Details", "Trip Details", "Terms and Conditions"];
@@ -122,7 +127,7 @@ const TransactionPage = () => {
     : "-";
 
   const handleBookTicket = () => {
-    return
+    // return;
     setBooked(true);
     localStorage.removeItem("bookingData");
   };
@@ -132,12 +137,17 @@ const TransactionPage = () => {
       <div className="min-h-screen flex flex-col items-center justify-center bg-gray-50 gap-4 px-4">
         <div className="bg-white rounded-2xl shadow-lg p-10 flex flex-col items-center gap-4 max-w-sm w-full text-center">
           <CheckCircle2 size={56} className="text-[#C8FF53]" />
-          <h2 className="text-2xl font-bold text-gray-800">Pemesanan Berhasil!</h2>
+          <h2 className="text-2xl font-bold text-gray-800">
+            Pemesanan Berhasil!
+          </h2>
           <p className="text-gray-500 text-sm">
-            Tiket kamu dari <strong>{originDisplay}</strong> ke <strong>{destDisplay}</strong> sudah
-            dikonfirmasi. Selamat berlayar! 🚢
+            Tiket kamu dari <strong>{originDisplay}</strong> ke{" "}
+            <strong>{destDisplay}</strong> sudah dikonfirmasi. Selamat berlayar!
+            🚢
           </p>
-          <p className="text-lg font-bold text-gray-800">{toRupiah(grandTotal)}</p>
+          <p className="text-lg font-bold text-gray-800">
+            {toRupiah(grandTotal)}
+          </p>
           <button
             onClick={() => navigate("/")}
             className="mt-2 w-full px-6 py-2.5 bg-[#C8FF53] text-black font-semibold rounded-full hover:bg-[#b0e640] transition-colors"
@@ -151,7 +161,7 @@ const TransactionPage = () => {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <div className="relative h-36 overflow-hidden bg-gradient-to-r from-[#0f2027] via-[#203a43] to-[#2c5364]">
+      <div className="relative h-36 overflow-hidden bg-linear-to-r from-[#0f2027] via-[#203a43] to-[#2c5364]">
         <div className="absolute inset-0 flex items-end pb-0">
           <div className="w-full h-full opacity-20 bg-[url('https://images.unsplash.com/photo-1599687266725-0d4d52716b86?w=1200')] bg-cover bg-center" />
         </div>
@@ -222,14 +232,18 @@ const TransactionPage = () => {
 
                 <div className="mt-4 grid grid-cols-2 gap-4">
                   <div>
-                    <p className="text-xs text-gray-400 mb-0.5">Departure Date</p>
+                    <p className="text-xs text-gray-400 mb-0.5">
+                      Departure Date
+                    </p>
                     <div className="flex items-center gap-1.5 text-sm text-gray-700">
                       <Calendar size={14} className="text-gray-400" />
                       <span>{formattedDate}</span>
                     </div>
                   </div>
                   <div>
-                    <p className="text-xs text-gray-400 mb-0.5">Shipping Lines</p>
+                    <p className="text-xs text-gray-400 mb-0.5">
+                      Shipping Lines
+                    </p>
                     <div className="flex items-center gap-1.5 text-sm text-gray-700">
                       <Ship size={14} className="text-gray-400" />
                       <span>{shippingLine}</span>
@@ -239,8 +253,12 @@ const TransactionPage = () => {
               </div>
 
               <div className="text-right shrink-0">
-                <p className="text-2xl font-bold text-red-500">{toRupiah(grandTotal)}</p>
-                <p className="text-xs text-gray-400 mt-0.5">Total semua penumpang</p>
+                <p className="text-2xl font-bold text-red-500">
+                  {toRupiah(grandTotal)}
+                </p>
+                <p className="text-xs text-gray-400 mt-0.5">
+                  Total semua penumpang
+                </p>
               </div>
             </div>
           </div>
@@ -272,7 +290,8 @@ const TransactionPage = () => {
                     <span>Dewasa × {adults}</span>
                   </div>
                   <span className="font-medium text-gray-800">
-                    {toRupiah(price.adults)} × {adults} = {toRupiah(price.adults * adults)}
+                    {toRupiah(price.adults)} × {adults} ={" "}
+                    {toRupiah(price.adults * adults)}
                   </span>
                 </div>
                 {children > 0 && (
@@ -282,7 +301,8 @@ const TransactionPage = () => {
                       <span>Anak-anak × {children}</span>
                     </div>
                     <span className="font-medium text-gray-800">
-                      {toRupiah(price.children)} × {children} = {toRupiah(price.children * children)}
+                      {toRupiah(price.children)} × {children} ={" "}
+                      {toRupiah(price.children * children)}
                     </span>
                   </div>
                 )}
@@ -292,7 +312,9 @@ const TransactionPage = () => {
                 </div>
                 <div className="border-t border-gray-100 pt-3 flex justify-between">
                   <span className="font-semibold text-gray-700">Total</span>
-                  <span className="font-bold text-red-500 text-base">{toRupiah(grandTotal)}</span>
+                  <span className="font-bold text-red-500 text-base">
+                    {toRupiah(grandTotal)}
+                  </span>
                 </div>
               </div>
             )}
@@ -300,14 +322,22 @@ const TransactionPage = () => {
             {activeTab === "Trip Details" && (
               <div className="space-y-3 text-sm text-gray-600">
                 <div className="flex items-start gap-3">
-                  <MapPin size={15} className="text-[#C8FF53] mt-0.5 shrink-0" />
+                  <MapPin
+                    size={15}
+                    className="text-[#C8FF53] mt-0.5 shrink-0"
+                  />
                   <div>
                     <p className="font-semibold text-gray-700">Rute</p>
-                    <p>{originDisplay} → {destDisplay}</p>
+                    <p>
+                      {originDisplay} → {destDisplay}
+                    </p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
-                  <Calendar size={15} className="text-[#C8FF53] mt-0.5 shrink-0" />
+                  <Calendar
+                    size={15}
+                    className="text-[#C8FF53] mt-0.5 shrink-0"
+                  />
                   <div>
                     <p className="font-semibold text-gray-700">Keberangkatan</p>
                     <p>{formattedDate}</p>
@@ -324,7 +354,10 @@ const TransactionPage = () => {
                   <Info size={15} className="text-[#C8FF53] mt-0.5 shrink-0" />
                   <div>
                     <p className="font-semibold text-gray-700">Penumpang</p>
-                    <p>{adults} Dewasa{children > 0 ? `, ${children} Anak-anak` : ""}</p>
+                    <p>
+                      {adults} Dewasa
+                      {children > 0 ? `, ${children} Anak-anak` : ""}
+                    </p>
                   </div>
                 </div>
               </div>
@@ -333,24 +366,45 @@ const TransactionPage = () => {
             {activeTab === "Terms and Conditions" && (
               <div className="space-y-2 text-sm text-gray-500">
                 <div className="flex items-start gap-2">
-                  <FileText size={14} className="text-[#C8FF53] mt-0.5 shrink-0" />
+                  <FileText
+                    size={14}
+                    className="text-[#C8FF53] mt-0.5 shrink-0"
+                  />
                   <p>Tiket tidak dapat dikembalikan setelah dikonfirmasi.</p>
                 </div>
                 <div className="flex items-start gap-2">
-                  <FileText size={14} className="text-[#C8FF53] mt-0.5 shrink-0" />
+                  <FileText
+                    size={14}
+                    className="text-[#C8FF53] mt-0.5 shrink-0"
+                  />
                   <p>Penumpang wajib hadir 60 menit sebelum keberangkatan.</p>
                 </div>
                 <div className="flex items-start gap-2">
-                  <FileText size={14} className="text-[#C8FF53] mt-0.5 shrink-0" />
+                  <FileText
+                    size={14}
+                    className="text-[#C8FF53] mt-0.5 shrink-0"
+                  />
                   <p>Batas bagasi gratis 20kg per penumpang dewasa.</p>
                 </div>
                 <div className="flex items-start gap-2">
-                  <FileText size={14} className="text-[#C8FF53] mt-0.5 shrink-0" />
-                  <p>Anak-anak di bawah 2 tahun tidak dikenakan biaya (tanpa kursi).</p>
+                  <FileText
+                    size={14}
+                    className="text-[#C8FF53] mt-0.5 shrink-0"
+                  />
+                  <p>
+                    Anak-anak di bawah 2 tahun tidak dikenakan biaya (tanpa
+                    kursi).
+                  </p>
                 </div>
                 <div className="flex items-start gap-2">
-                  <FileText size={14} className="text-[#C8FF53] mt-0.5 shrink-0" />
-                  <p>Pengelola berhak mengubah jadwal karena kondisi cuaca atau teknis.</p>
+                  <FileText
+                    size={14}
+                    className="text-[#C8FF53] mt-0.5 shrink-0"
+                  />
+                  <p>
+                    Pengelola berhak mengubah jadwal karena kondisi cuaca atau
+                    teknis.
+                  </p>
                 </div>
               </div>
             )}
