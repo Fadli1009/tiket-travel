@@ -1,4 +1,7 @@
+<<<<<<< Updated upstream
 import Navbar from "./Navbar";
+=======
+>>>>>>> Stashed changes
 import Footer from "./footer/Footer";
 
 const Container = ({ children }) => {
