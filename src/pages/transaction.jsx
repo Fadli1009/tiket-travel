@@ -1,7 +1,8 @@
 import React from "react";
+import TransactionPage from "../components/Transaction";
 
 const transaction = () => {
-  return <div>transaction</div>;
+  return <TransactionPage />;
 };
 
 export default transaction;

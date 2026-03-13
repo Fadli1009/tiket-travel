@@ -1,15 +1,9 @@
 import React from "react";
 import jumbotron from "../components/img/jumbotron.png";
+import Jumbotron from "../components/Jumbotron";
 
 const home = () => {
-  return (
-    <div
-      className="h-screen w-full"
-      style={{ backgroundImage: `url(${jumbotron})` }}
-    >
-      
-    </div>
-  );
+  return <Jumbotron jumbotron={jumbotron} />;
 };
 
 export default home;
