@@ -54,7 +54,7 @@ const sign = () => {
   return (
     <div
       style={{ backgroundImage: `url(${BgSign})` }}
-      className="h-full w-full bg-cover bg-center"
+      className="h-full w-full bg-cover bg-center brightness-75"
     >
       <Signs
         title="Sign In"
