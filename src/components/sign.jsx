@@ -25,7 +25,7 @@ const sign = ({
         </div>
       </div>
 
-      <div className="pb-40 px-2">
+      <div className="pb-40 px-2 relative">
         <div className="bg-white rounded-4xl p-5 w-full md:w-125 justify-center mx-auto">
           <div className="flex flex-col items-center justify-center">
             <div className="flex flex-col items-center justify-center">

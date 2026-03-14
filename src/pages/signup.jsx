@@ -53,20 +53,24 @@ const signup = () => {
   };
 
   return (
-    <div
-      style={{ backgroundImage: `url(${BgSign})` }}
-      className="h-full w-full bg-cover bg-center brightness-75"
-    >
-      <Signs
-        title="Sign Up"
-        description="You Have Account?"
-        to="/login"
-        titles="Sign in here"
-        form={handleSignup}
-        inputs={inputs}
-        titleButton="Sign Up"
-      />
-    </div>
+    <>
+      <div className="absolute inset-0 bg-black/30" />
+
+      <div
+        style={{ backgroundImage: `url(${BgSign})` }}
+        className="h-full w-full bg-cover bg-center"
+      >
+        <Signs
+          title="Sign Up"
+          description="You Have Account?"
+          to="/login"
+          titles="Sign in here"
+          form={handleSignup}
+          inputs={inputs}
+          titleButton="Sign Up"
+        />
+      </div>
+    </>
   );
 };
 

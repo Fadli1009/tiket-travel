@@ -7,8 +7,8 @@ import ButtonSign from "./buttonsign";
 const navLinks = [
   { to: "/", label: "Home" },
   { to: "/transaction", label: "Transaction" },
-  { to: "/last-offer", label: "Last Offer" },
-  { to: "/contact", label: "Contact Us" },
+  // { to: "/last-offer", label: "Last Offer" },
+  // { to: "/contact", label: "Contact Us" },
 ];
 
 const Navbar = () => {
